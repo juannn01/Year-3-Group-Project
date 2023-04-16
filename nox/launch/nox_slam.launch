@@ -1,0 +1,20 @@
+<launch>
+
+
+	<include file="$(find nox)/launch/nox_navigation.launch" />
+
+	<arg name="map_file" default="$(find nox)/map_file/blockD.yaml"/>
+
+	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+	</node>
+
+
+			<!--  ************** Hector_mapping ***************  -->
+<!--	<node name="hector_mapping" pkg="hector_mapping" type="hector_mapping" output="screen">
+	  <param name="map_size" value="4096"/>
+	  <param name="resolution" value="0.1"/>
+	</node>
+-->
+				<!--  ************* Visualisation **************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find nox)/cfg/rviz_slam_base_local_planner.rviz" required="true" />
+</launch>
