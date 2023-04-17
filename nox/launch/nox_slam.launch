@@ -1,9 +1,9 @@
 <launch>
 
 
-	<include file="$(find nox)/launch/nox_navigation.launch" />
+	<include file="$(find ScA)/launch/ScA_navigation.launch" />
 
-	<arg name="map_file" default="$(find nox)/map_file/blockD.yaml"/>
+	<arg name="map_file" default="$(find ScA)/map_file/blockD.yaml"/>
 
 	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
 	</node>
@@ -16,5 +16,5 @@
 	</node>
 -->
 				<!--  ************* Visualisation **************  -->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find nox)/cfg/rviz_slam_base_local_planner.rviz" required="true" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find ScA)/cfg/rviz_slam_base_local_planner.rviz" required="true" />
 </launch>
